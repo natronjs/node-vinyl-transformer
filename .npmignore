@@ -1,0 +1,13 @@
+#
+# .npmignore
+#
+
+# --------------------------------------
+/build
+/docs
+/examples
+/test
+/.editorconfig
+/.natronrc
+/.travis.yml
+/*.tgz

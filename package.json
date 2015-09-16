@@ -1,0 +1,29 @@
+{
+  "name": "vinyl-transformer",
+  "version": "0.1.0",
+  "description": "A Stream Transformer for Vinyl",
+  "keywords": [
+    "vinyl",
+    "stream",
+    "transform"
+  ],
+  "author": "Stefan Rumzucker",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stefanr/node-vinyl-transformer.git"
+  },
+  "scripts": {
+    "build": "npm --prefix build run build",
+    "build-install": "npm --prefix build install",
+    "test": "npm --prefix test test",
+    "test-install": "npm --prefix test install"
+  },
+  "dependencies": {
+    "object-assign": "^4.0.0",
+    "readable-stream": "^2.0.0"
+  },
+  "devDependencies": {
+    "babel-core": "^5.8.0"
+  },
+  "license": "MIT"
+}
