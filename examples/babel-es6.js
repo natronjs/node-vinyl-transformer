@@ -5,6 +5,7 @@
 import {src, dest} from "vinyl-fs";
 import {transform} from "babel-core";
 import {Transformer} from "../";
+import {filelist} from "./filelist";
 
 class BabelTransformer extends Transformer {
 
@@ -21,4 +22,5 @@ class BabelTransformer extends Transformer {
 
 src("src/**/*.js")
   .pipe(new BabelTransformer())
+  .pipe(filelist())
   .pipe(dest("dist"));

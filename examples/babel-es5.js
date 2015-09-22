@@ -7,6 +7,7 @@ var assign = require("object-assign");
 var vfs = require("vinyl-fs");
 var transform = require("babel-core").transform;
 var Transformer = require("../").Transformer;
+var filelist = require("./filelist").filelist;
 
 function BabelTransformer(options) {
   Transformer.call(this, options);
@@ -25,4 +26,5 @@ BabelTransformer.prototype.transform = function (file) {
 
 vfs.src("src/**/*.js")
   .pipe(new BabelTransformer())
+  .pipe(filelist())
   .pipe(vfs.dest("dist"));
