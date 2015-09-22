@@ -1,6 +1,6 @@
 {
   "name": "vinyl-transformer",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A Stream Transformer for Vinyl",
   "keywords": [
     "vinyl",
@@ -15,7 +15,7 @@
   "scripts": {
     "build": "npm --prefix build run build",
     "build-install": "npm --prefix build install",
-    "test": "npm --prefix test test",
+    "test": "npm --prefix test run test",
     "test-install": "npm --prefix test install"
   },
   "dependencies": {
