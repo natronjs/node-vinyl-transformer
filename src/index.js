@@ -66,15 +66,19 @@ export class TransformerError extends Error {
   }
 }
 
+interface TransformFn {
+  (file: File, __meta__: object): Promise<File>|File|void;
+}
+
 interface TransformerLike {
-  transform: Function;
-  initialize?: Function;
-  flush?: Function;
+  initialize(__meta__: object): void;
+  transform(file: File, __meta__: object): Promise<File>|File|void;
+  flush(__meta__: object): Promise<File>|File|void;
 }
 
 const T__META__ = Symbol("__meta__");
 
-export function transformer(thing: Function|TransformerLike): Class<Transformer> {
+export function transformer(thing: TransformFn|TransformerLike): Class<Transformer> {
   let transform, initialize, flush;
   if (thing && thing.transform) {
     ({transform, initialize, flush} = thing);

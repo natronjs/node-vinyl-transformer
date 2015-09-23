@@ -38,13 +38,13 @@ var AbstractTransformer = (function (_Transform) {
     key: "_transform",
     value: function _transform(chunk, encoding, cb) {
       if (chunk && chunk.isNull && chunk.isBuffer && chunk.isStream) {
-        var file = chunk;
-        file.encoding = encoding;
-        if (file.isNull()) {
-          return cb(null, file);
+        var _file = chunk;
+        _file.encoding = encoding;
+        if (_file.isNull()) {
+          return cb(null, _file);
         }
         try {
-          Promise.resolve(this.transform(file)).then(function (file) {
+          Promise.resolve(this.transform(_file)).then(function (file) {
             return cb(null, file);
           })["catch"](function (err) {
             return cb(err);

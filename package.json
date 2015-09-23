@@ -5,7 +5,9 @@
   "keywords": [
     "vinyl",
     "stream",
-    "transform"
+    "transform",
+    "pipe",
+    "through"
   ],
   "author": "Stefan Rumzucker",
   "repository": {
