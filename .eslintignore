@@ -1,6 +1,7 @@
 #
-# .gitignore
+# .eslintignore
 #
 
 # --------------------------------------
-/dist
+**/dist/**
+**/node_modules/**

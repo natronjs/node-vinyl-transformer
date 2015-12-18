@@ -1,7 +1,7 @@
 {
   "name": "vinyl-transformer",
-  "version": "0.1.1",
-  "description": "A Stream Transformer for Vinyl",
+  "version": "0.2.0-beta.1",
+  "description": "Create Transformers for Vinyl File Streams",
   "keywords": [
     "vinyl",
     "stream",
@@ -12,20 +12,22 @@
   "author": "Stefan Rumzucker",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/stefanr/node-vinyl-transformer.git"
+    "url": "git+https://github.com/natronjs/vinyl-transformer.git"
   },
-  "scripts": {
-    "build": "npm --prefix build run build",
-    "build-install": "npm --prefix build install",
-    "test": "npm --prefix test run test",
-    "test-install": "npm --prefix test install"
+  "main": "dist/cjs/__main__",
+  "engines": {
+    "node": ">=0.12"
   },
   "dependencies": {
-    "object-assign": "^4.0.0",
-    "readable-stream": "^2.0.0"
+    "readable-stream": "^2.0.0",
+    "vinyl": "^1.1.0"
   },
   "devDependencies": {
-    "babel-core": "^5.8.0"
+    "babel-core": "^6.3.0",
+    "babel-plugin-transform-flow-strip-types": "^6.3.0",
+    "babel-preset-es2015": "^6.3.0",
+    "babel-preset-stage-0": "^6.3.0",
+    "babel-register": "^6.3.0"
   },
   "license": "MIT"
 }

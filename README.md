@@ -1,95 +1,56 @@
 # vinyl-transformer
 
-**A Stream Transformer for [Vinyl][vinyl-url]**
-
-[vinyl-url]: https://npmjs.org/package/vinyl
+**Create Transformers for Vinyl File Streams**
 
 [![Version][npm-img]][npm-url]
 [![Downloads][dlm-img]][npm-url]
 [![Build Status][travis-img]][travis-url]
+[![ReadMe][readme-img]][readme-url]
 
 [npm-img]: https://img.shields.io/npm/v/vinyl-transformer.svg
 [npm-url]: https://npmjs.org/package/vinyl-transformer
 [dlm-img]: https://img.shields.io/npm/dm/vinyl-transformer.svg
-[travis-img]: https://travis-ci.org/stefanr/node-vinyl-transformer.svg
-[travis-url]: https://travis-ci.org/stefanr/node-vinyl-transformer
+[travis-img]: https://travis-ci.org/natronjs/vinyl-transformer.svg
+[travis-url]: https://travis-ci.org/natronjs/vinyl-transformer
+[readme-img]: https://img.shields.io/badge/read-me-orange.svg
+[readme-url]: https://natron.readme.io/docs/module-vinyl-transformer
+
+## Documentation
+
+See the [documentation for `vinyl-transformer`][readme-url]
 
 ## Usage
-### Example `MyTransformer`
-#### `Transformer` Class
 
-```js
-import {Transformer} from "vinyl-transformer";
-
-class MyTransformer extends Transformer {
-
-  transform(file: File): File {
-    file.contents = /* ... */;
-    return file;
-  }
-}
-```
-
-#### `transformer` Function
-
-```js
-import {transformer} from "vinyl-transformer";
-
-let MyTransformer = transformer((file: File) => {
-  file.contents = /* ... */;
-  return file;
-});
-```
-
-#### Use with Vinyl FS
+### Vinyl FS
 
 ```js
 import {src, dest} from "vinyl-fs";
+import {createTransformerFn} from "vinyl-transformer";
 
-src("src/example.js")
-  .pipe(new MyTransformer())
-  .pipe(dest("out"));
+let compile = createTransformerFn((file) => {
+  file.contents = /* ... */;
+});
+
+let stream = (src("src/**/*.js")
+  .pipe(compile())
+  .pipe(dest("dist"))
+);
 ```
 
-#### Use with Gulp
+### Gulp
 
 ```js
 import gulp from "gulp";
+import {createTransformerFn} from "vinyl-transformer";
 
-gulp.task("example", () => {
-  return gulp.src("src/example.js")
-    .pipe(new MyTransformer())
-    .pipe(gulp.dest("out"));
+let compile = createTransformerFn((file) => {
+  file.contents = /* ... */;
+});
+
+gulp.task("compile", () => {
+  return (gulp.src("src/**/*.js")
+    .pipe(compile())
+    .pipe(gulp.dest("dist"))
+  );
 });
 ```
-
-## API
-
-### Class: `Transformer`
-
-##### `new Transformer(options?: object)`
-
-#### Methods
-
-##### `transform(file: File): Promise<File>|File|void`
-
-##### `flush(): Promise<File>|File|void`
-
-### Function: `transform()`
-
-##### `transform(thing: TransformFn|TransformerLike): Class<Transformer>`
-
-```js
-interface TransformFn {
-  (file: File, __meta__: object): Promise<File>|File|void;
-}
-
-interface TransformerLike {
-  initialize(__meta__: object): void;
-  transform(file: File, __meta__: object): Promise<File>|File|void;
-  flush(__meta__: object): Promise<File>|File|void;
-}
-```
-
-## Examples
-- [`vinyl-tf-babel`](https://npmjs.com/package/vinyl-tf-babel) A Vinyl Transformer for Babel
