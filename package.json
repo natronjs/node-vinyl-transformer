@@ -18,6 +18,9 @@
     "url": "https://github.com/natronjs/vinyl-transformer.git",
     "type": "git"
   },
+  "scripts": {
+    "build": "tsc"
+  },
   "bugs": {
     "url": "https://github.com/natronjs/vinyl-transformer/issues"
   },
