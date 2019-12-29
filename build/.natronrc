@@ -1,6 +1,0 @@
-{
-  "transpiler": "babel",
-  "logging": {
-    "wrapConsole": true
-  }
-}

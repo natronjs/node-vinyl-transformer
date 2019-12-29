@@ -1,33 +1,36 @@
 {
   "name": "vinyl-transformer",
-  "version": "0.2.0-beta.1",
+  "version": "0.3.0",
   "description": "Create Transformers for Vinyl File Streams",
+  "author": {
+    "name": "Stefan Rumzucker"
+  },
   "keywords": [
     "vinyl",
-    "stream",
     "transform",
-    "pipe",
-    "through"
+    "through",
+    "stream",
+    "pipe"
   ],
-  "author": "Stefan Rumzucker",
+  "main": "dist",
+  "typings": "dist",
   "repository": {
-    "type": "git",
-    "url": "git+https://github.com/natronjs/vinyl-transformer.git"
+    "url": "https://github.com/natronjs/vinyl-transformer.git",
+    "type": "git"
   },
-  "main": "dist/cjs/__main__",
-  "engines": {
-    "node": ">=0.12"
+  "bugs": {
+    "url": "https://github.com/natronjs/vinyl-transformer/issues"
   },
+  "license": "MIT",
   "dependencies": {
-    "readable-stream": "^2.0.0",
-    "vinyl": "^1.1.0"
+    "readable-stream": "^3.4.0",
+    "vinyl": "^2.2.0"
   },
   "devDependencies": {
-    "babel-core": "^6.3.0",
-    "babel-plugin-transform-flow-strip-types": "^6.3.0",
-    "babel-preset-es2015": "^6.3.0",
-    "babel-preset-stage-0": "^6.3.0",
-    "babel-register": "^6.3.0"
-  },
-  "license": "MIT"
+    "@types/readable-stream": "^2.0.0",
+    "@types/vinyl": "^2.0.0",
+    "typescript": "^3.7.0",
+    "tslint": "^5.20.0",
+    "tslint-config-standard": "^9.0.0"
+  }
 }
