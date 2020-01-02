@@ -17,10 +17,10 @@ export function createTransformerClass(thing: TTransformerLike): ITransformerTyp
   let initialize: Function;
   let flush: Function;
 
-  if (thing && (<any>thing).transform instanceof Function) {
-    ({ transform, initialize, flush } = <Transformer>thing);
+  if (thing && (thing as any).transform instanceof Function) {
+    ({ transform, initialize, flush } = (thing as Transformer));
   } else {
-    transform = <ITransformFunction>thing;
+    transform = (thing as ITransformFunction);
   }
 
   if (!(transform instanceof Function)) {
@@ -51,7 +51,7 @@ export function transformer(tLike: TTransformerLike): Transformer {
 export function createTransformFunction(tLike: TTransformerLike):
   (...args: any[]) => Transformer {
   const t = transformer(tLike);
-  return function (...args: any[]) {
+  return function _(...args: any[]) {
     t.initialize(...args);
     return t;
   };

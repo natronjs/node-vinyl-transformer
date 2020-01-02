@@ -12,19 +12,12 @@
     "stream",
     "pipe"
   ],
-  "main": "dist",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
   "typings": "dist",
-  "repository": {
-    "url": "https://github.com/natronjs/vinyl-transformer.git",
-    "type": "git"
-  },
   "scripts": {
-    "build": "tsc"
+    "build": "rollup -c"
   },
-  "bugs": {
-    "url": "https://github.com/natronjs/vinyl-transformer/issues"
-  },
-  "license": "MIT",
   "dependencies": {
     "readable-stream": "^3.4.0",
     "vinyl": "^2.2.0"
@@ -32,8 +25,19 @@
   "devDependencies": {
     "@types/readable-stream": "^2.0.0",
     "@types/vinyl": "^2.0.0",
-    "typescript": "^3.7.0",
+    "rollup": "^1.27.0",
+    "rollup-plugin-typescript2": "^0.25.0",
+    "tslib": "^1.10.0",
     "tslint": "^5.20.0",
-    "tslint-config-standard": "^9.0.0"
-  }
+    "tslint-config-standard": "^9.0.0",
+    "typescript": "^3.7.0"
+  },
+  "repository": {
+    "url": "https://github.com/natronjs/vinyl-transformer.git",
+    "type": "git"
+  },
+  "bugs": {
+    "url": "https://github.com/natronjs/vinyl-transformer/issues"
+  },
+  "license": "MIT"
 }

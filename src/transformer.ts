@@ -7,6 +7,7 @@ export abstract class Transformer extends Transform {
     super({ objectMode: true });
   }
 
+  // tslint:disable-next-line: no-empty
   public initialize(...args: any[]): void | Promise<void> { }
 
   public abstract transform(file: File): TTransformResult;
@@ -26,6 +27,7 @@ export abstract class Transformer extends Transform {
     }
   }
 
+  // tslint:disable-next-line: no-empty
   public flush(): TTransformResult { }
 
   public _flush(cb: ITransformCallback): void {
